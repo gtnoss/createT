@@ -1,10 +1,7 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    let p3_p2 = 0
-    let p2_p2 = 0
-    let p1_p2 = 0
     mySprite.sayText("" + text_list[p1_p1] + text_list[p2_p1] + text_list[p3_p1])
     pause(5000)
-    notmysprite.sayText("" + p1_p2 + p2_p2 + p3_p2)
+    notmysprite.sayText("" + text_list[p1_p2] + text_list[p2_p2] + text_list[p3_p2])
 })
 function p1_p2_say () {
     tl_0 = sprites.create(img`
@@ -234,9 +231,6 @@ function doSomething (list: string[], num: number, text: string) {
     "2"
     ]
 }
-function doSomething2 (bool: boolean, text: string) {
-	
-}
 let Tl9: Sprite = null
 let Tl_8: Sprite = null
 let Tl_7: Sprite = null
@@ -249,6 +243,9 @@ let tl_1: Sprite = null
 let tl_0: Sprite = null
 let notmysprite: Sprite = null
 let mySprite: Sprite = null
+let p3_p2 = 0
+let p2_p2 = 0
+let p1_p2 = 0
 let p3_p1 = 0
 let p2_p1 = 0
 let p1_p1 = 0
@@ -379,9 +376,12 @@ doSomething(text_list, 1, "abc")
 p1_p2_say()
 pause(10000)
 sprites.destroyAllSpritesOfKind(SpriteKind.Enemy)
-p1_p1 = game.askForNumber("select part one of your insult")
-p2_p1 = game.askForNumber("select part two of your insult ")
-p3_p1 = game.askForNumber("select the final part of your insult")
+p1_p1 = game.askForNumber("select part one of your insult", 1)
+p2_p1 = game.askForNumber("select part two of your insult ", 1)
+p3_p1 = game.askForNumber("select the final part of your insult", 1)
+p1_p2 = randint(0, 9)
+p2_p2 = randint(0, 9)
+p3_p2 = randint(0, 9)
 scene.setBackgroundImage(img`
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
@@ -638,4 +638,3 @@ notmysprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(30, 80)
 notmysprite.setPosition(135, 75)
-doSomething2(true, "abc")
